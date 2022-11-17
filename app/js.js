@@ -1,21 +1,16 @@
-$("#button-blue").on("click", function() {
+$("#btn_gravar").on("click", function() {
     
     var txt_nome = $("#name").val();
-    var txt_email = $("#email").val();
-    var txt_comentario = $("#comment").val();
+    var txt_mensagem = $("#mensagem").val();
 
     $.ajax({
         url: "",
-        
         type: "post",
-        data: {nome: txt_nome, comentario: txt_comentario, email: txt_email},
-        beforeSend: function() {
-        
-            console.log("Tentando enviar os dados....");
-
+        data: {nome: txt_nome, mensagem: txt_mensagem},
+        beforeSend: function() { 
+            $("#resposta").html("Enviando");
         }
     }).done(function(e) {
-        alert("Dados Salvos");
+        $("#resposta").html("Dados Salvos");
     })
-
 });
